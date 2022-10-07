@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'DMSans';
+    src: url('fonts/DMSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.ttf');
+}
+
+/* .text-logo {
+    font-family: 'DMSans';
+    font-weight: 700;
+    font-size: 36px;
+    color: #D04F4F;
+} */
