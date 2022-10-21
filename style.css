@@ -1,21 +1,106 @@
 @font-face {
-    font-family: 'DMSans';
-    src: url('fonts/DMSans-Regular.ttf');
+  font-family: "DMSans";
+  src: url("fonts/DMSans-Regular.ttf");
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('fonts/Lato-Regular.ttf');
+  font-family: "Lato";
+  src: url("fonts/Lato-Regular.ttf");
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('fonts/Roboto-Regular.ttf');
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Regular.ttf");
 }
 
-/* .text-logo {
-    font-family: 'DMSans';
+header {
+  font-family: "DMSans";
+  font-weight: 700;
+  font-size: 22px;
+  color: #d04f4f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+h1 {
+  margin-top: 5px;
+}
+
+/* clears the ‘X’ on input fields */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+
+input:focus{
+    outline: none;
+}
+
+.global-search-bar {
+  background: #e7e7e7;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.global-search-input {
+  border: none;
+  background-color: #e7e7e7;
+  width: 100%;
+  font-family: "Lato";
+}
+
+.global-search-input::placeholder {
+    font-family: "Lato";
+}
+
+main {
+  margin: 0 40px 40px 40px;
+}
+
+.tags-search-section{
+    display: flex;
+}
+
+.ingredients-search-block, .devices-search-block, .utensils-search-block {
+    margin-right: 20px;
+    color: white;
+    border-radius: 5px;
+    padding: 20px 10px;
+}
+
+.ingredients-search-input, .devices-search-input, .utensils-search-input {
+    border: none;
+    color: white;
+    font-family: "Lato";
     font-weight: 700;
-    font-size: 36px;
-    color: #D04F4F;
-} */
+}
+
+.ingredients-search-input:focus + img, .devices-search-input:focus + img, .utensils-search-input:focus + img {
+   transform: rotate(180deg);
+}
+
+.ingredients-search-input::placeholder, .devices-search-input::placeholder, .utensils-search-input::placeholder {
+    color: white;
+    font-family: "Lato";
+    font-weight: 700;
+}
+
+.ingredients-search-block, .ingredients-search-input {
+    background: #3282F7;
+}
+
+.devices-search-block, .devices-search-input {
+    background: #68D9A4;
+
+}
+
+.utensils-search-block, .utensils-search-input {
+    background: #ED6454;
+}

@@ -1,21 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les petits plats</title>
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-
+      <img src="icons/logo-icon.svg" alt="logo" />
+      <h1>Les petits plats</h1>
     </header>
     <main>
-
+      <div class="global-search-bar">
+        <input
+          type="search"
+          placeholder="Rechercher une recette"
+          name="global-search"
+          class="global-search-input"
+        />
+        <img src="icons/search-icon.svg" alt="search icon" />
+      </div>
+      <div class="tags-search-section">
+        <div class="chosen-tags-block"></div>
+        <div class="ingredients-search-block">
+          <div>
+            <input
+              type="search"
+              placeholder="Ingrédients"
+              name="ingredients-search"
+              class="ingredients-search-input"
+            />
+            <img src="icons/arrow-down-icon.svg" alt="arrow icon" />
+          </div>
+          <div class="tags-list"></div>
+        </div>
+        <div class="devices-search-block">
+          <div>
+            <input
+              type="search"
+              placeholder="Appareils"
+              name="devices-search"
+              class="devices-search-input"
+            />
+            <img src="icons/arrow-down-icon.svg" alt="arrow icon" />
+          </div>
+          <div class="tags-list"></div>
+        </div>
+        <div class="utensils-search-block">
+          <div>
+            <input
+              type="search"
+              placeholder="Ustensiles"
+              name="utensils-search"
+              class="utensils-search-input"
+            />
+            <img src="icons/arrow-down-icon.svg" alt="arrow icon" />
+          </div>
+          <div class="tags-list"></div>
+        </div>
+      </div>
+      <div id="recipes-block">
+        
+      </div>
     </main>
     <script src="recipes.js"></script>
     <script src="scripts.js"></script>
-</body>
+  </body>
 </html>
