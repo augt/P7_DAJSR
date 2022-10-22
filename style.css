@@ -32,12 +32,22 @@ h1 {
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
-input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
 
-input:focus{
-    outline: none;
+input:focus {
+  outline: none;
 }
 
 .global-search-bar {
@@ -57,50 +67,134 @@ input:focus{
 }
 
 .global-search-input::placeholder {
-    font-family: "Lato";
+  font-family: "Lato";
 }
 
 main {
   margin: 0 40px 40px 40px;
 }
 
-.tags-search-section{
-    display: flex;
+.tags-search-section {
+  display: flex;
 }
 
-.ingredients-search-block, .devices-search-block, .utensils-search-block {
-    margin-right: 20px;
-    color: white;
-    border-radius: 5px;
-    padding: 20px 10px;
+.ingredients-search-block,
+.devices-search-block,
+.utensils-search-block {
+  margin-right: 20px;
+  color: white;
+  border-radius: 5px;
+  padding: 20px 10px;
 }
 
-.ingredients-search-input, .devices-search-input, .utensils-search-input {
-    border: none;
-    color: white;
-    font-family: "Lato";
-    font-weight: 700;
+.ingredients-search-input,
+.devices-search-input,
+.utensils-search-input {
+  border: none;
+  color: white;
+  font-family: "Lato";
+  font-weight: 700;
 }
 
-.ingredients-search-input:focus + img, .devices-search-input:focus + img, .utensils-search-input:focus + img {
-   transform: rotate(180deg);
+.ingredients-search-input:focus + img,
+.devices-search-input:focus + img,
+.utensils-search-input:focus + img {
+  transform: rotate(180deg);
 }
 
-.ingredients-search-input::placeholder, .devices-search-input::placeholder, .utensils-search-input::placeholder {
-    color: white;
-    font-family: "Lato";
-    font-weight: 700;
+.ingredients-search-input::placeholder,
+.devices-search-input::placeholder,
+.utensils-search-input::placeholder {
+  color: white;
+  font-family: "Lato";
+  font-weight: 700;
 }
 
-.ingredients-search-block, .ingredients-search-input {
-    background: #3282F7;
+.ingredients-search-block,
+.ingredients-search-input {
+  background: #3282f7;
 }
 
-.devices-search-block, .devices-search-input {
-    background: #68D9A4;
-
+.devices-search-block,
+.devices-search-input {
+  background: #68d9a4;
 }
 
-.utensils-search-block, .utensils-search-input {
-    background: #ED6454;
+.utensils-search-block,
+.utensils-search-input {
+  background: #ed6454;
+}
+
+/* recipes block*/
+
+#recipes-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.recipe-card {
+  height: 364px;
+  width: 380px;
+  border-radius: 5px;
+  background: #e7e7e7;
+  margin-bottom: 40px;
+  font-family: "Lato";
+}
+
+.empty-photo {
+  width: 380px;
+  height: 178px;
+  background: #c7bebe;
+  border-radius: 5px 5px 0 0;
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.duration span {
+  margin-left: 10px;
+}
+
+.recipe-body {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 18px 40px 20px;
+}
+
+.recipe-ingredients-block {
+  width: 171px;
+  font-size: 12px;
+}
+
+.recipe-ingredients-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-ingredients-block span {
+  font-weight: 700;
+}
+
+.description {
+  width: 171px;
+  height: 70px;
+  font-family: "Roboto";
+  font-size: 12px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  max-width: 200px;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
