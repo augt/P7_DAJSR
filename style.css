@@ -57,6 +57,8 @@ input:focus {
   justify-content: space-between;
   padding: 10px;
   margin-bottom: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .global-search-input {
@@ -71,43 +73,71 @@ input:focus {
 }
 
 main {
-  margin: 0 40px 40px 40px;
+  margin-bottom: 40px;
 }
 
 .tags-search-section {
   display: flex;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: absolute;
 }
 
 .ingredients-search-block,
-.devices-search-block,
+.appliances-search-block,
 .utensils-search-block {
   margin-right: 20px;
   color: white;
   border-radius: 5px;
-  padding: 20px 10px;
+  height: fit-content;
+  width: fit-content;
+}
+
+.ingredients-search-block > div:nth-child(1),
+.appliances-search-block > div:nth-child(1),
+.utensils-search-block > div:nth-child(1) {
+  display: flex;
+  height: 69px;
+  width: fit-content;
+  align-items: center;
+}
+
+.ingredients-search-block img,
+.appliances-search-block img,
+.utensils-search-block img {
+  height: 10px;
+  width: 16px;
+  margin-right: 10px;
 }
 
 .ingredients-search-input,
-.devices-search-input,
+.appliances-search-input,
 .utensils-search-input {
   border: none;
   color: white;
   font-family: "Lato";
   font-weight: 700;
+  width: 134px;
+  margin-left: 10px;
 }
 
 .ingredients-search-input:focus + img,
-.devices-search-input:focus + img,
+.appliances-search-input:focus + img,
 .utensils-search-input:focus + img {
   transform: rotate(180deg);
 }
 
 .ingredients-search-input::placeholder,
-.devices-search-input::placeholder,
+.appliances-search-input::placeholder,
 .utensils-search-input::placeholder {
   color: white;
   font-family: "Lato";
   font-weight: 700;
+}
+
+.tags-list {
+  color: white;
+  font-family: "Lato";
 }
 
 .ingredients-search-block,
@@ -115,8 +145,8 @@ main {
   background: #3282f7;
 }
 
-.devices-search-block,
-.devices-search-input {
+.appliances-search-block,
+.appliances-search-input {
   background: #68d9a4;
 }
 
@@ -130,8 +160,8 @@ main {
 #recipes-block {
   display: flex;
   flex-wrap: wrap;
+  margin: 130px 5% 0 5%;
   justify-content: space-between;
-  margin-top: 30px;
 }
 
 .recipe-card {
@@ -139,7 +169,7 @@ main {
   width: 380px;
   border-radius: 5px;
   background: #e7e7e7;
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
   font-family: "Lato";
 }
 
@@ -154,6 +184,13 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+}
+
+.recipe-name {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .duration {
@@ -173,13 +210,14 @@ main {
 }
 
 .recipe-ingredients-block {
-  width: 171px;
+  width: 50%;
   font-size: 12px;
 }
 
 .recipe-ingredients-block ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .recipe-ingredients-block span {
@@ -187,14 +225,7 @@ main {
 }
 
 .description {
-  width: 171px;
-  height: 70px;
   font-family: "Roboto";
   font-size: 12px;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  max-width: 200px;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  width: 50%;
 }
