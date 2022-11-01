@@ -117,6 +117,7 @@ main {
   color: white;
   font-family: "Lato";
   font-weight: 700;
+  font-size: 18px;
   width: 134px;
   margin-left: 10px;
 }
@@ -133,11 +134,12 @@ main {
   color: white;
   font-family: "Lato";
   font-weight: 700;
+  font-size: 18px;
 }
-
-.tags-list {
-  color: white;
-  font-family: "Lato";
+.ingredients-search-input:focus::placeholder,
+.appliances-search-input:focus::placeholder,
+.utensils-search-input:focus::placeholder {
+  opacity: 0.5;
 }
 
 .ingredients-search-block,
@@ -153,6 +155,33 @@ main {
 .utensils-search-block,
 .utensils-search-input {
   background: #ed6454;
+}
+
+.tags-block {
+  display: none;
+  color: white;
+  font-family: "Lato";
+  font-size: 18px;
+  list-style: none;
+  max-height: 1360px;
+  max-width: 700px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0 0 15px 0;
+  margin: 0;
+}
+
+.tags-block li {
+  margin: 5px 10px 5px 20px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.tag-input-way-bigger {
+  width: 700px;
+}
+.tag-input-bigger {
+  width: 200px;
 }
 
 /* recipes block*/

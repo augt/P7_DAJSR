@@ -43,8 +43,8 @@ function generateRecipesCardsList(recipesList) {
 
     const ingredientsBlock = document.getElementById(recipeItem.id);
 
-    const ingredientsList = document.createElement("ul");
-    ingredientsBlock.appendChild(ingredientsList);
+    const ingredientsUl = document.createElement("ul");
+    ingredientsBlock.appendChild(ingredientsUl);
 
     recipeItem.ingredients.forEach(function (ingredientItem) {
       if (!ingredientItem.quantity) {
@@ -62,7 +62,7 @@ function generateRecipesCardsList(recipesList) {
         <span>${ingredientItem.ingredient}: </span>${ingredientItem.quantity} ${ingredientItem.unit}
         </li>
         `;
-      ingredientsList.insertAdjacentHTML("beforeend", templateRecipeCard);
+      ingredientsUl.insertAdjacentHTML("beforeend", templateRecipeCard);
     });
   });
 }
@@ -71,48 +71,114 @@ generateRecipesCardsList(recipesFullList);
 
 // display tag filters lists
 
-const ingredientsList = [];
+let ingredientsFullList = [];
 
 recipesFullList.forEach(function (recipeItem) {
   recipeItem.ingredients.forEach(function (ingredientItem) {
-    const existingIngredient = ingredientsList.find(
+    const existingIngredient = ingredientsFullList.find(
       (element) => element === ingredientItem.ingredient
     );
 
     if (!existingIngredient) {
-      ingredientsList.push(ingredientItem.ingredient);
+      ingredientsFullList.push(ingredientItem.ingredient);
     }
   });
 });
+console.log(ingredientsFullList);
 
-console.log(ingredientsList);
-
-const appliancesList = [];
+let appliancesFullList = [];
 
 recipesFullList.forEach(function (recipeItem) {
-  const existingAppliance = appliancesList.find(
+  const existingAppliance = appliancesFullList.find(
     (element) => element === recipeItem.appliance
   );
 
   if (!existingAppliance) {
-    appliancesList.push(recipeItem.appliance);
+    appliancesFullList.push(recipeItem.appliance);
   }
 });
 
-console.log(appliancesList);
-
-const utensilsList = [];
+let utensilsFullList = [];
 
 recipesFullList.forEach(function (recipeItem) {
   recipeItem.utensils.forEach(function (utensilItem) {
-    const existingUtensil = utensilsList.find(
+    const existingUtensil = utensilsFullList.find(
       (element) => element === utensilItem
     );
 
     if (!existingUtensil) {
-      utensilsList.push(utensilItem);
+      utensilsFullList.push(utensilItem);
     }
   });
 });
+console.log(utensilsFullList);
 
-console.log(utensilsList);
+const ingredientsInput = document.querySelector(".ingredients-search-input");
+const ingredientsTagsBlock = document.querySelector(
+  ".ingredients-search-block .tags-block"
+);
+const appliancesInput = document.querySelector(".appliances-search-input");
+const appliancesTagsBlock = document.querySelector(
+  ".appliances-search-block .tags-block"
+);
+const utensilsInput = document.querySelector(".utensils-search-input");
+const utensilsTagsBlock = document.querySelector(
+  ".utensils-search-block .tags-block"
+);
+
+function showTagsBlock(inputNode, tagsBlockNode) {
+  inputNode.addEventListener("click", () => {
+    if (inputNode === ingredientsInput) {
+      inputNode.classList.add("tag-input-way-bigger");
+      inputNode.setAttribute("placeholder", "Rechercher un ingrédient");
+    }
+    if (inputNode === appliancesInput) {
+      inputNode.classList.add("tag-input-bigger");
+      inputNode.setAttribute("placeholder", "Rechercher un appareil");
+    }
+    if (inputNode === utensilsInput) {
+      inputNode.classList.add("tag-input-bigger");
+      inputNode.setAttribute("placeholder", "Rechercher un ustensile");
+    }
+
+    tagsBlockNode.style.display = "flex";
+  });
+}
+
+showTagsBlock(ingredientsInput, ingredientsTagsBlock);
+showTagsBlock(appliancesInput, appliancesTagsBlock);
+showTagsBlock(utensilsInput, utensilsTagsBlock);
+
+function generateTagsNodesList(tagsList, tagsBlockNode) {
+  tagsList.forEach(function (tagItem) {
+    const templateTagListElement = `
+        <li>
+        ${tagItem}
+        </li>
+        `;
+    tagsBlockNode.insertAdjacentHTML("beforeend", templateTagListElement);
+  });
+}
+generateTagsNodesList(ingredientsFullList, ingredientsTagsBlock);
+generateTagsNodesList(appliancesFullList, appliancesTagsBlock);
+generateTagsNodesList(utensilsFullList, utensilsTagsBlock);
+
+// hide tags list
+const body = document.querySelector("body");
+body.addEventListener("click", () => {
+  if (document.activeElement !== ingredientsInput) {
+    ingredientsTagsBlock.style.display = "none";
+    ingredientsInput.classList.remove("tag-input-way-bigger");
+    ingredientsInput.setAttribute("placeholder", "Ingrédients");
+  }
+  if (document.activeElement !== appliancesInput) {
+    appliancesTagsBlock.style.display = "none";
+    appliancesInput.classList.remove("tag-input-bigger");
+    appliancesInput.setAttribute("placeholder", "Appareils");
+  }
+  if (document.activeElement !== utensilsInput) {
+    utensilsTagsBlock.style.display = "none";
+    utensilsInput.classList.remove("tag-input-bigger");
+    utensilsInput.setAttribute("placeholder", "Ustensiles");
+  }
+});
