@@ -163,7 +163,7 @@ main {
   font-family: "Lato";
   font-size: 18px;
   list-style: none;
-  max-height: 1360px;
+  max-height: 1300px;
   max-width: 700px;
   flex-direction: column;
   flex-wrap: wrap;
@@ -177,12 +177,14 @@ main {
   cursor: pointer;
 }
 
-.tag-input-way-bigger {
-  width: 700px;
-}
 .tag-input-bigger {
   width: 200px;
 }
+
+.tag-input-way-bigger {
+  width: 700px;
+}
+
 
 /* recipes block*/
 
