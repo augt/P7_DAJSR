@@ -185,6 +185,44 @@ main {
   width: 700px;
 }
 
+.chosen-tags-block{
+  margin: 0 5% 20px 5%;
+  display: flex;
+}
+
+.chosen-tag{
+  margin-right:20px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-family: "Lato";
+  font-size: 14px;
+}
+
+.chosen-tag div {
+  margin-right: 10px;
+}
+
+.chosen-tag img {
+  cursor: pointer
+}
+
+.ingredient-chosen-tag{
+  background: #3282f7;
+}
+
+.appliance-chosen-tag{
+  background:#68d9a4;
+}
+
+.utensil-chosen-tag{
+  background: #ed6454;
+}
+
 
 /* recipes block*/
 
