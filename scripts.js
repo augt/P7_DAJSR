@@ -189,7 +189,7 @@ function generateTagsNodesList(tagsList, tagsBlockNode /* , tagsNodesList */) {
     tagsBlockNode.appendChild(liNode);
     liNode.addEventListener("click", function () {
       showSelectedTag(liNode);
-      filterRecipesByTags(liNode); // ! function event click on tag filter element
+      filterRecipesByTags(); // ! function event click on tag filter element
     });
   });
 
@@ -275,6 +275,9 @@ function showSelectedTag(node) {
   tagDiv.classList.add("chosen-tag");
   const tagSubDiv = document.createElement("div");
   const tagDeleteIcon = document.createElement("img");
+  tagDeleteIcon.addEventListener("click", function(event) {
+    removeFilterTag(event)
+  })
   tagDeleteIcon.setAttribute("src", "icons/delete-icon.svg");
   tagDeleteIcon.setAttribute("alt", "delete icon");
   if (node.parentNode === ingredientsTagsBlock) {
@@ -294,7 +297,7 @@ function showSelectedTag(node) {
 
 let filteredRecipesList = [...recipesFullList];
 
-function filterRecipesByTags(node) {
+function filterRecipesByTags() {
   const chosenIngredientsTagsList = chosenTagsBlock.querySelectorAll(
     ".ingredient-chosen-tag div"
   );
@@ -337,7 +340,6 @@ function filterRecipesByTags(node) {
     });
   });
 
-  console.log(filteredRecipesList);
   generateRecipesCardsList(filteredRecipesList);
   getIngredientsList(filteredRecipesList);
   getAppliancesList(filteredRecipesList);
@@ -357,3 +359,8 @@ function filterRecipesByTags(node) {
 }
 
 // handle removing tags
+function removeFilterTag(event){
+event.target.parentNode.remove();
+filteredRecipesList = [...recipesFullList];
+filterRecipesByTags();
+}
