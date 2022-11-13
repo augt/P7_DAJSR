@@ -291,6 +291,14 @@ function filterRecipesByTags(node) {
     ".ingredient-chosen-tag div"
   );
 
+  const chosenAppliancesTagsList = chosenTagsBlock.querySelectorAll(
+    ".appliance-chosen-tag div"
+  );
+
+  const chosenUtensilsTagsList = chosenTagsBlock.querySelectorAll(
+    ".utensil-chosen-tag div"
+  );
+
   chosenIngredientsTagsList.forEach(function (chosenIngredientTag) {
     function hasIngredient(element) {
       return (
@@ -302,6 +310,25 @@ function filterRecipesByTags(node) {
       return recipeItem.ingredients.some(hasIngredient) === true;
     });
   });
+
+  chosenAppliancesTagsList.forEach(function (chosenApplianceTag) {
+    filteredRecipesList = filteredRecipesList.filter((recipeItem) => {
+      return recipeItem.appliance.toLowerCase() === chosenApplianceTag.textContent.toLowerCase();
+    });
+  });
+
+  chosenUtensilsTagsList.forEach(function (chosenUtensilTag) {
+    function hasUtensil(element) {
+      return (
+        element.toLowerCase() ===
+        chosenUtensilTag.textContent.toLowerCase()
+      );
+    }
+    filteredRecipesList = filteredRecipesList.filter((recipeItem) => {
+      return recipeItem.utensils.some(hasUtensil) === true;
+    });
+  });
+
   console.log(filteredRecipesList);
   generateRecipesCardsList(filteredRecipesList);
   getIngredientsList(filteredRecipesList);
