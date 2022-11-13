@@ -175,6 +175,14 @@ let utensilsTagsNodesList = []; */
 function generateTagsNodesList(tagsList, tagsBlockNode /* , tagsNodesList */) {
   tagsBlockNode.innerHTML = "";
   // tagsNodesList = [];
+  const chosenTagsNodesList = document.querySelectorAll(".chosen-tag div");
+
+  chosenTagsNodesList.forEach(function (tagNodeItem) {
+    const alreadyChosenTag = tagsList.find(tagItem => tagItem === tagNodeItem.textContent)
+    if (alreadyChosenTag){
+      tagsList.splice(tagsList.indexOf(alreadyChosenTag),1)
+    }
+  })
   tagsList.forEach(function (tagItem) {
     const liNode = document.createElement("li");
     liNode.textContent = tagItem;
@@ -347,3 +355,5 @@ function filterRecipesByTags(node) {
     utensilsTagsBlock /* , utensilsTagsNodesList */
   );
 }
+
+// handle removing tags
